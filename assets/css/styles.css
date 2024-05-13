@@ -1,0 +1,734 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+:root, :root[data-theme='dark']{
+    --primary-color: #FFFFFF; /*Cor dos titulos*/
+    --secundary-color: #b4b4b4;
+    --descricao-color: #E7E7E7; /*Cor dos textos embaixo dos titulos*/
+    --primary-bg-color: #1B1B1B; /*Cor do Background*/
+    --secundary-bg-color: #272727; /*Cor do Background Dos Itens (projetos e tal)*/
+    --icon-color: #FFFFFF; /*Cor do icone (sol/lua)*/
+    --menu-items-color: #acacac; /*Cor dos itens do menu*/
+    --menu-border-color: #707070; /*Cor da borda do menu (linha dividindo)*/
+    --item-color-selected: #FFFFFF; /*Cor do item quando selecionada*/
+}
+
+:root[data-theme='light']{
+    --primary-color: #000000; /*Cor dos titulos*/
+    --descricao-color: #202020; /*Cor dos textos embaixo dos titulos*/
+    --primary-bg-color: #ffffff; /*Cor do Background*/
+    --secundary-bg-color: #b6b6b6; /*Cor do Background Dos Itens (projetos e tal)*/
+    --icon-color: #000000; /*Cor do icone (sol/lua)*/
+    --menu-items-color: #202020; /*Cor dos itens do menu*/
+    --menu-border-color: #838383;  /*Cor da borda do menu (linha dividindo)*/
+    --item-color-selected: #000000; /*Cor do item quando selecionada*/
+
+}
+
+/*Inverter a Cor dos iconses das habilidades*/
+
+html[data-theme='light'] .habilidades__logo{
+    filter: invert(20%);
+}
+
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secundary-bg-color) transparent;
+}
+
+
+
+body{
+    background-color:var(--primary-bg-color) ;
+    font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--primary-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover{
+    color: var(--primary-color);
+}
+
+i{
+    color: var(--icon-color);
+}
+
+b{
+    font-weight: 400;
+}
+
+hr{
+    color: var(--secundary-color);
+}
+
+h1{
+    font-size: 2.rem;
+    color: var(--primary-color);
+    font-weight: 200;
+
+}
+
+h2{
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.4rem;
+    }
+
+h3 {
+     font-size: 1.55rem;
+     text-align: left;
+     }
+      
+h4 {
+    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 1.15rem;
+    text-align: left;
+    }
+
+h1, h2, h3{
+    font-family: 'League Spartan';
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-weight: 200;
+}
+
+p, span, li{
+    font-size: 1.25rem;
+    color: var(--descricao-color);
+}
+
+
+
+
+
+p{
+    text-align: justify;
+}
+        
+
+
+.header{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width:  100%;
+    padding: 0.5rem 1rem;
+    z-index: 2;
+}
+
+.header__toggle { /*Caixa que o botao de mudar o tema esta*/
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header__brand .logo{
+    width: 3.25rem;
+    height: 3.25rem;
+}
+
+#mudarTema{
+    font-size: 1.5rem; /*Por ser um icone, esta com o font size,*/
+    color: var(--icon-color);
+    cursor: pointer;
+    transition: ease-in-out .8s;
+
+}
+
+
+.menu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background: var(--primary-bg-color);
+}
+
+.menu__item{
+    width: 100%;
+}
+
+.menu__link{
+    display: flex;
+   align-items: center;
+   gap: .5rem;
+}
+
+.menu--mobile{
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-between;
+    border-top: 1px solid var(--menu-border-color);
+}
+
+.menu--mobile .menu__link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+}
+
+.menu__link.active  .menu__icon, 
+.menu__link.active .menu__text,
+.menu__link:hover  .menu__icon, 
+.menu__link:hover .menu__text{ /*Muda a cor quando o está na opçao selecionada*/
+    color: var(--item-color-selected);
+    font-weight: 600;
+}
+
+.menu__icon, .menu__text{
+    color: var(--menu-items-color);
+}
+.menu__icon {
+    font-size: 1.5rem;
+}
+
+.menu__text{
+    font-size: 1rem;
+    text-transform: uppercase;
+}   
+
+.header__nav {
+    display: none;
+}
+
+.menu--principal{
+    gap:1rem;
+}
+
+.menu--redes{ /*menu social (das redes sociais)*/
+    gap: 1rem;
+}
+
+.btn   {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    justify-content: center;
+    width: 100%;
+    background: transparent;
+    border-radius: 3.125rem;
+    border: none;
+    padding: 0.875rem 1rem;
+    color: var(--primary-color);
+}
+
+.btn:hover{
+    transform: scale(1.05);
+    transition: ease-in-out .3s;
+}
+
+.btn span, .btn i{
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+main, .projetos{
+    padding: 5rem 5rem 1rem 5rem;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main__content1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+.main__content2 iframe{
+    width: 100%;
+    aspect-ratio: 16/9;
+
+}
+
+
+.habilidades{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 6.25rem 1rem 2rem;
+    gap: 1.25rem;
+    background: var(--secundary-bg-color);
+    margin-top: -5.5rem; 
+}
+
+.habilidades h2{
+    font-size: 2rem;
+    text-transform: none;
+    letter-spacing: normal;
+    text-align: start;
+}
+
+.lista__habilidades{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.habilidades__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    aspect-ratio: 1/1;
+    border: 1px solid var(--menu-border-color);
+    border-radius: 50rem;   
+}
+
+.habilidades__logo{
+    width: 3rem;
+    height: 3rem;
+}
+
+/*Projetos*/
+
+.projetos{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.card__projetos{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card__cover{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.card__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom:100px;
+}
+
+.card__titulo{
+    font-size: 1.5rem;
+}
+
+.card__descricao{
+    font-size: 1rem;
+    color:var(--descricao-color);
+}
+
+.card__lista{
+    margin-left: 1rem;
+    list-style: disc;
+}
+
+
+.card__botoes{
+    display: flex;
+}
+
+
+.sobremim2{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sobre__conteudo{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+
+.sobre__foto{
+    width: 70%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    border-radius: 50rem;
+    border: 1px solid var(--primary-color);
+
+}
+
+.sobre__texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.85rem;
+    gap: 1.5rem;
+}
+.sobre__titulo{
+    display: flex;
+    flex-direction: row;
+   justify-content: center;
+}
+
+
+
+.sobre__icones{
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.sobre_icones i{
+    font-size: 1.25rem;
+}
+
+.container__botao{
+    display: flex;
+    justify-content: center;
+}
+
+.sobre__btn{
+    background: transparent;
+    border: transparent;
+    border-radius: 50rem;
+}
+
+.sobre__btn span{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+
+.sobre__btn:hover{
+    transform: scale(1.05);
+    transition: ease-in-out .3s;
+}
+
+
+/*SEGUNDA PARTE DO SOBRE*/
+
+.sobre__conteudo2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    
+}
+.sobre__conteudo2 li{
+    color: var(--secundary-color);
+   list-style: none;
+    
+}
+.sobre__conteudo2 span{
+    color: var(--secundary-color);
+}
+
+.container__formacao{
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.sobre__formacao{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sobre__cursos{
+    align-content: flex-end;
+}
+
+
+.sobre__experiencias{
+     width: 50%;
+}
+
+.contato{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    border-top: 1px solid var(--menu-border-color);
+    padding: 2rem 2rem 5rem 2rem;
+}
+
+.contato p {
+    font-size: 1.10rem;
+    text-align: center;
+    color: var(--secundary-color);
+}
+
+.contato ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.contato li, span{
+     color: var(--secundary-color);
+    list-style: none;
+}
+
+footer p{
+    font-size: .875rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    padding: 1rem;
+}
+
+footer{
+
+}
+
+
+/*--------------------------------------------------------*/
+
+/*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/
+
+
+@media(min-width: 768px) { /*Quando ele tiver APARTIR de 768px*/
+    .header {
+        position: fixed;
+        border-bottom: 1px solid var(--menu-border-color);
+        padding: 1rem 4rem;
+        background: var(--primary-bg-color)
+    }
+    .nav--mobile{
+        display: none;
+    }
+    .header__nav{
+     display: flex;
+}
+
+
+.header__nav, 
+.header__toggle{ /*Etsa atribhindo essa largura minima para os dois (a barra de navegacao e o botao de mudar tema, assim a logo fica centralizada*/
+    min-width: 30%;
+}
+
+h1{
+    font-size: 5rem;
+}
+
+main, .projetos, .sobremim2 {
+     padding: 8rem 6rem 4rem 6rem;
+}
+
+h2{
+    font-size: 3rem;
+    letter-spacing: 0.4rem;
+}
+
+.container__formacao{
+    gap: 10rem;
+}
+.main__content1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.habilidades{
+    padding: 6.25rem 6rem 2rem 6rem;
+    margin-top: -6rem;
+}
+
+.container__formacao{
+        gap: 20rem;
+    }       
+
+
+
+
+
+
+footer{
+    margin: 0;
+}
+} /*Fim 768px*/
+
+
+
+
+@media (min-width: 992px){
+    .card__projetos.card--reverso{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .card__cover{
+        width: 100%;
+        border-radius: 2rem;
+    }
+
+    .sobremim2{
+        gap: 5rem;
+    }
+
+    .sobre__conteudo{
+        display: grid;
+        grid-template-columns: 34% 60%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 4rem;
+    }
+
+    .sobre__foto{
+        width: 100%;
+    
+    }
+
+    .sobre__conteudo2 {
+        align-items: center;
+      }
+      
+      .container__formacao {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+}
+
+
+@media (min-width: 1200px){
+    
+
+    h2{
+        font-size: 4rem;
+    }
+
+    h3{
+        font-size: 2.5rem;
+    }
+
+    main{
+        padding: 12rem 6rem 2rem;
+    }
+
+    .habilidades{
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10rem 6rem 4rem;
+    }
+
+    .habilidades h2{
+        font-size: 3rem;
+        width: 55%;
+    }
+
+    .lista__habilidades{
+        justify-content: left;
+        gap: 1rem
+    }
+
+    .habilidades__item{
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .habilidades__logo{
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .card__projetos{
+        flex-direction: row;
+    }
+
+    .card__cover{
+        width: 50%;
+        object-fit: cover;
+        object-position:center ;
+
+    }
+
+    .card__titulo{
+        font-size: 3.25rem;
+    }
+
+    .card__descricao, .card__item{
+       font-size: 1.25rem; 
+
+    }
+
+    .card__botoes, .btn{
+        width: auto;
+    }
+
+    .card__body .habilidades__item{
+        width:4rem;
+        height: 4rem;
+    }
+    
+    .card__body .habilidades__logo{
+        width:2rem;
+        height: 2rem;
+    }
+
+    .container__formacao{
+        gap: 30rem;
+    }
+    p, span, li{
+        font-size: 1.15rem;
+    }
+    
+    .email--container{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media(min-width:1400px){ /*Apartir dessa largura, vai ter essa dimensao de padding*/
+
+    h1{
+        font-size: 6.25rem;
+    }
+
+    h2{
+        font-size: 4.5rem;
+    }
+
+    h3{
+        font-size: 3.25rem;
+    }
+
+    .header{
+        padding: 1rem 10rem;
+    }
+
+    main{
+        padding: 12rem 15rem 2rem;
+    }
+
+    
+    .habilidades, .projetos .sobremim{
+        padding: 10rem 15rem 4rem;
+    }
+
+}
+
+
+
+
