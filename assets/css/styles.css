@@ -15,6 +15,7 @@
 
 :root[data-theme='light']{
     --primary-color: #000000; /*Cor dos titulos*/
+    --secundary-color: #464646;
     --descricao-color: #202020; /*Cor dos textos embaixo dos titulos*/
     --primary-bg-color: #ffffff; /*Cor do Background*/
     --secundary-bg-color: #b6b6b6; /*Cor do Background Dos Itens (projetos e tal)*/

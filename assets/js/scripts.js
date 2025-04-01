@@ -12,3 +12,14 @@ function changeTheme (){
 }
 
 mudarTema.addEventListener("click", changeTheme)
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuLinks = document.querySelectorAll(".menu__link");
+
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            menuLinks.forEach(item => item.classList.remove("active")); // Remove 'active' de todos
+            this.classList.add("active"); // Adiciona 'active' ao clicado
+        });
+    });
+});
