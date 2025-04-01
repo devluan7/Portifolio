@@ -508,70 +508,51 @@ footer{
 
 /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/ /*RESPONSIVIDADE*/
 
-
-@media(min-width: 768px) { /*Quando ele tiver APARTIR de 768px*/
+@media(min-width: 768px) {
     .header {
         position: fixed;
         border-bottom: 1px solid var(--menu-border-color);
         padding: 1rem 4rem;
-        background: var(--primary-bg-color)
+        background: var(--primary-bg-color);
+        width: 100%;
+        z-index: 1000;
     }
+
     .nav--mobile{
         display: none;
     }
     .header__nav{
-     display: flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1{
+        font-size: 4rem;
+    }
+
+    main, .projetos, .sobremim2 {
+        padding: 6rem 4rem;
+    }
+
+    h2{
+        font-size: 2.5rem;
+    }
+
+    .container__formacao{
+        gap: 5rem;
+    }
+
+    .main__content1{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .habilidades{
+        padding: 4rem;
+    }
 }
-
-
-.header__nav, 
-.header__toggle{ /*Etsa atribhindo essa largura minima para os dois (a barra de navegacao e o botao de mudar tema, assim a logo fica centralizada*/
-    min-width: 30%;
-}
-
-h1{
-    font-size: 5rem;
-}
-
-main, .projetos, .sobremim2 {
-     padding: 8rem 6rem 4rem 6rem;
-}
-
-h2{
-    font-size: 3rem;
-    letter-spacing: 0.4rem;
-}
-
-.container__formacao{
-    gap: 10rem;
-}
-.main__content1{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.habilidades{
-    padding: 6.25rem 6rem 2rem 6rem;
-    margin-top: -6rem;
-}
-
-.container__formacao{
-        gap: 20rem;
-    }       
-
-
-
-
-
-
-footer{
-    margin: 0;
-}
-} /*Fim 768px*/
-
-
-
 
 @media (min-width: 992px){
     .card__projetos.card--reverso{
@@ -581,40 +562,71 @@ footer{
 
     .card__cover{
         width: 100%;
-        border-radius: 2rem;
-    }
-
-    .sobremim2{
-        gap: 5rem;
+        border-radius: 1.5rem;
     }
 
     .sobre__conteudo{
-        display: grid;
-        grid-template-columns: 34% 60%;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 4rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
     }
 
     .sobre__foto{
-        width: 100%;
-    
+        width: 40%;
+        border-radius: 50%;
     }
-
-    .sobre__conteudo2 {
-        align-items: center;
-      }
-      
-      .container__formacao {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    
 }
 
-
 @media (min-width: 1200px){
-    
+    h2{
+        font-size: 3rem;
+    }
+
+    h3{
+        font-size: 2rem;
+    }
+
+    main{
+        padding: 8rem 6rem;
+    }
+
+    .habilidades{
+        display: flex;
+        justify-content: space-between;
+        padding: 6rem;
+    }
+
+    .habilidades h2{
+        font-size: 2.5rem;
+        width: 50%;
+    }
+
+    .lista__habilidades{
+        justify-content: left;
+        gap: 1rem;
+    }
+
+    .habilidades__item{
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .card__projetos{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .card__cover{
+        width: 45%;
+    }
+}
+
+@media(min-width:1400px){
+    h1{
+        font-size: 5rem;
+    }
 
     h2{
         font-size: 4rem;
@@ -624,112 +636,17 @@ footer{
         font-size: 2.5rem;
     }
 
-    main{
-        padding: 12rem 6rem 2rem;
-    }
-
-    .habilidades{
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10rem 6rem 4rem;
-    }
-
-    .habilidades h2{
-        font-size: 3rem;
-        width: 55%;
-    }
-
-    .lista__habilidades{
-        justify-content: left;
-        gap: 1rem
-    }
-
-    .habilidades__item{
-        width: 6rem;
-        height: 6rem;
-    }
-
-    .habilidades__logo{
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .card__projetos{
-        flex-direction: row;
-    }
-
-    .card__cover{
-        width: 50%;
-        object-fit: cover;
-        object-position:center ;
-
-    }
-
-    .card__titulo{
-        font-size: 3.25rem;
-    }
-
-    .card__descricao, .card__item{
-       font-size: 1.25rem; 
-
-    }
-
-    .card__botoes, .btn{
-        width: auto;
-    }
-
-    .card__body .habilidades__item{
-        width:4rem;
-        height: 4rem;
-    }
-    
-    .card__body .habilidades__logo{
-        width:2rem;
-        height: 2rem;
-    }
-
-    .container__formacao{
-        gap: 30rem;
-    }
-    p, span, li{
-        font-size: 1.15rem;
-    }
-    
-    .email--container{
-        display: flex;
-        justify-content: center;
-    }
-}
-
-@media(min-width:1400px){ /*Apartir dessa largura, vai ter essa dimensao de padding*/
-
-    h1{
-        font-size: 6.25rem;
-    }
-
-    h2{
-        font-size: 4.5rem;
-    }
-
-    h3{
-        font-size: 3.25rem;
-    }
-
     .header{
-        padding: 1rem 10rem;
+        padding: 1rem 8rem;
     }
 
     main{
-        padding: 12rem 15rem 2rem;
+        padding: 10rem 12rem;
     }
-
     
-    .habilidades, .projetos .sobremim{
-        padding: 10rem 15rem 4rem;
+    .habilidades, .projetos, .sobremim{
+        padding: 8rem 12rem;
     }
-
 }
-
-
 
 
