@@ -590,7 +590,7 @@ footer{
     margin: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .card__botoes .btn {
       flex: 1 1 100%;
     }
