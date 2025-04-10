@@ -316,6 +316,27 @@ main{
     gap: 2rem;
 }
 
+.card__botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .card__botoes .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    flex: 1 1 45%;
+    min-width: 120px;
+  }
+  
+
 .card__cover{
   object-fit: contain;
   width: 100%;
@@ -568,9 +589,14 @@ h2{
 footer{
     margin: 0;
 }
+
+@media (max-width: 600px) {
+    .card__botoes .btn {
+      flex: 1 1 100%;
+    }
 } /*Fim 768px*/
 
-
+}
 
 
 @media (min-width: 992px){
@@ -729,7 +755,5 @@ footer{
     }
 
 }
-
-
 
 
